@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: userapp-app
+  namespace: pfe
+  labels:
+    team: pfe
+spec:
+  selector:
+    matchLabels:
+      app: userapp
+  endpoints:
+    - port: web
+      path: /prometheusMetrics
