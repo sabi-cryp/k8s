@@ -106,3 +106,8 @@ spec:
               cpu: 100m
               memory: 50Mi
       serviceAccountName: jhipster-prometheus-operator-sa
+    management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
