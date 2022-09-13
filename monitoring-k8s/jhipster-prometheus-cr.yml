@@ -9,11 +9,6 @@ kind: Role
 metadata:
   name: jhipster-prometheus-role
   namespace: pfe
-management:
-  metrics:
-    export:
-      prometheus:
-        enabled: true
 rules:
   - apiGroups: [""]
     resources:
@@ -40,11 +35,6 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: jhipster-prometheus-sa
-management:
-  metrics:
-    export:
-      prometheus:
-        enabled: true
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
@@ -60,11 +50,6 @@ spec:
   resources:
     requests:
       memory: 400Mi
- management:
-  metrics:
-    export:
-      prometheus:
-        enabled: true
 ---
 apiVersion: v1
 kind: Service
@@ -79,8 +64,3 @@ spec:
       targetPort: web
   selector:
     prometheus: jhipster-prometheus    
-management:
-  metrics:
-    export:
-      prometheus:
-        enabled: true
